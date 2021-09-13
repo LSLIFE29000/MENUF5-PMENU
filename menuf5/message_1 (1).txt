@@ -1,0 +1,402 @@
+----------------------- ligne de code a rajouter dans votre menu f5 coter client pour les papiers carte identié permis et port d'arme-----------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()))                 --- regarder
+TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(closestPlayer))             --- Montrer
+
+TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'driver')  --- regarder
+TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(closestPlayer), 'driver') --- Montrer
+
+TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'weapon')   --- regarder
+TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(closestPlayer), 'weapon') --- Montrer
+
+
+
+ if closestDistance ~= -1 and closestDistance <= 3 then
+
+
+  else
+            ESX.ShowNotification(('~r~Personne a proximité !'))
+        end
+ 
+
+
+  elseif btn == "~r~Arrêter l'animation" then                                      
+				
+				ClearPedTasksImmediately(PlayerPedId())
+
+			elseif btn == "Dormir/se réveiller" then                                      
+				
+				TriggerEvent("Ragdoll", source)
+
+
+			elseif slide == 1 and btn == "Vetement" then
+				TriggerEvent('RiZiePersoMenu:haut')
+			elseif slide == 2 and btn == "Vetement" then 
+				TriggerEvent('RiZiePersoMenu:bas')
+
+			elseif slide == 1 and btn == "Tête" then
+				TriggerEvent('RiZiePersoMenu:access', "Helmet")
+                
+			elseif slide == 2 and btn == "Tête" then 
+				TriggerEvent('RiZiePersoMenu:access', "Glasses")  
+
+			elseif slide == 1 and btn == "Accessoire" then 
+				TriggerEvent('RiZiePersoMenu:sac')
+				
+			elseif slide == 2 and btn == "Accessoire" then 
+				TriggerEvent('RiZiePersoMenu:gilet')
+-----------------------------  Début FESTIVES ----------------------------------------------------------
+			
+			elseif btn == "Fumer une cigarette" then                                      
+				
+                startScenario('WORLD_HUMAN_SMOKING')
+
+			elseif btn == "Fumer un joint" then                                      
+				
+                startScenario('WORLD_HUMAN_SMOKING_POT')
+
+			elseif btn == "Dj" then                                      
+				
+				startAnim('anim@mp_player_intcelebrationmale@dj', 'dj')
+
+			elseif btn == "Bourré sur place" then                                      
+				
+				startAnim('amb@world_human_bum_standing@drunk@idle_a', 'idle_a')
+
+			elseif btn == "Vomir en voiture" then                                      
+				
+				startAnim('oddjobs@taxi@tie', 'vomit_outside')
+
+-----------------------------  FIN FESTIVES ----------------------------------------------------------
+
+-----------------------------  Début Divers ----------------------------------------------------------
+
+			elseif btn == "Boire un café" then                                      
+				
+				startAnim('amb@world_human_aa_coffee@idle_a', 'idle_a')
+
+			elseif btn == "S'asseoir" then                                      
+				
+				startAnim('anim@heists@prison_heistunfinished_biztarget_idle', 'target_idle')
+
+			elseif btn == "Attendre contre un mur" then                                      
+				
+				startScenario('world_human_leaning')
+
+			elseif btn == "Couché sur le dos" then                                      
+				
+				startScenario('WORLD_HUMAN_SUNBATHE_BACK')
+
+			elseif btn == "Couché sur le ventre" then                                      
+				
+				startScenario('WORLD_HUMAN_SUNBATHE')
+
+			elseif btn == "Nettoyer quelque chose" then                                      
+				
+				startScenario('world_human_maid_clean')
+
+			elseif btn == "Préparer à manger" then                                      
+				
+				startScenario('PROP_HUMAN_BBQ')
+
+			elseif btn == "Position de Fouille" then                                      
+				
+				startAnim('mini@prostitutes@sexlow_veh', 'low_car_bj_to_prop_female')
+
+			elseif btn == "Prendre un selfie" then                                      
+				
+				startScenario('world_human_tourist_mobile')
+
+			elseif btn == "Ecouter à une porte" then                                      
+				
+				startAnim('mini@safe_cracking', 'idle_base')
+
+-----------------------------  FIN Divres ----------------------------------------------------------
+
+-----------------------------  Début Sport ----------------------------------------------------------
+
+			elseif btn == "Montrer ses muscles" then                                      
+				
+				startAnim('amb@world_human_muscle_flex@arms_at_side@base', 'base')
+
+			elseif btn == "Faire des pompes" then                                      
+				
+				startAnim('amb@world_human_push_ups@male@base', 'base')
+
+			elseif btn == "Faire des abdos" then                                      
+				
+				startAnim('amb@world_human_sit_ups@male@base', 'base')
+
+			elseif btn == "Faire du yoga" then                                      
+				
+				startAnim('amb@world_human_yoga@male@base', 'base_a')
+
+-----------------------------  FIN Sport ----------------------------------------------------------
+
+-----------------------------  Début salutation ----------------------------------------------------------
+
+			elseif btn == "Saluer" then                                      
+				
+				startAnim('gestures@m@standing@casual', 'gesture_hello')
+
+			elseif btn == "Serrer la main" then                                      
+				
+				startAnim('mp_common', 'givetake1_a')
+
+			elseif btn == "Tchek" then                                      
+				
+				startAnim('mp_ped_interaction', 'handshake_guy_a')
+
+			elseif btn == "Salut bandit" then                                      
+				
+				startAnim('mp_ped_interaction', 'hugs_guy_a')
+
+			elseif btn == "Salut Militaire" then                                      
+				
+				startAnim('mp_player_int_uppersalute', 'mp_player_int_salute')
+
+-----------------------------  FIN salutation ----------------------------------------------------------
+
+-----------------------------  Début démarches ----------------------------------------------------------
+
+			elseif btn == "Normal M" then                                      
+				
+				startAttitude('move_m@confident', 'move_m@confident')
+
+			elseif btn == "Normal F" then                                      
+				
+				startAttitude('move_f@heels@c', 'move_f@heels@c')
+
+			elseif btn == "Depressif M" then                                      
+				
+				startAttitude('move_m@depressed@a', 'move_m@depressed@a')
+
+			elseif btn == "Depressif F" then                                      
+				
+				startAttitude('move_f@depressed@a', 'move_f@depressed@a')
+
+			elseif btn == "Business" then                                      
+				
+				startAttitude('move_m@business@a', 'move_m@business@a')
+
+			elseif btn == "Determine" then                                      
+				
+				startAttitude('move_m@brave@a', 'move_m@brave@a')
+
+			elseif btn == "Casual" then                                      
+				
+				startAttitude('move_m@casual@a', 'move_m@casual@a')
+
+			elseif btn == "Trop mangé" then                                      
+				
+				startAttitude('move_m@fat@a', 'move_m@fat@a')
+
+			elseif btn == "Hipster" then                                      
+				
+				startAttitude('move_m@hipster@a', 'move_m@hipster@a')
+
+			elseif btn == "Blesse" then                                      
+				
+				startAttitude('move_m@injured', 'move_m@injured')
+
+			elseif btn == "Intimide" then                                      
+				
+				startAttitude('move_m@hurry@a', 'move_m@hurry@a')
+
+			elseif btn == "Hobo" then                                      
+				
+				startAttitude('move_m@hobo@a', 'move_m@hobo@a')
+
+			elseif btn == "Malheureux" then                                      
+				
+				startAttitude('move_m@sad@a', 'move_m@sad@a')
+
+			elseif btn == "Muscle" then                                      
+				
+				startAttitude('move_m@muscle@a', 'move_m@muscle@a')
+
+			elseif btn == "Choc" then                                      
+				
+				startAttitude('move_m@shocked@a', 'move_m@shocked@a')
+
+			elseif btn == "Sombre" then                                      
+				
+				startAttitude('move_m@shadyped@a', 'move_m@shadyped@a')
+
+			elseif btn == "Fatigue" then                                      
+				
+				startAttitude('move_m@buzzed', 'move_m@buzzed')
+
+			elseif btn == "Pressee" then                                      
+				
+				startAttitude('move_m@hurry_butch@a', 'move_m@hurry_butch@a')
+
+			elseif btn == "Fier" then                                      
+				
+				startAttitude('move_m@money', 'move_m@money')
+
+			elseif btn == "Petite course" then                                      
+				
+				startAttitude('move_m@quick', 'move_m@quick')
+
+			elseif btn == "Mangeuse d'homme" then                                      
+				
+				startAttitude('move_f@maneater', 'move_f@maneater')
+
+			elseif btn == "Impertinent" then                                      
+				
+				startAttitude('move_f@sassy', 'move_f@sassy')
+
+			elseif btn == "Arrogante" then                                      
+				
+	
+
+
+			startAttitude('move_f@arrogant@a', 'move_f@arrogant@a')
+
+elseif btn == "~r~Stopper l'animation" then                                      
+				
+				ClearPedTasksImmediately(PlayerPedId())
+
+				ESX.ShowNotification("Animation ~r~stopper~s~ !")
+elseif btn == "Tombé / Se réveiller" then                                      
+				
+				TriggerEvent("Ragdoll", source)
+
+
+
+
+["animations"] = {
+			b = {
+				--{name = "~r~Stopper l'animation"},
+				--{name = "Tombé / Se réveiller"},
+				--{name = "Festives", ask = ">", askX = true},
+				--{name = "Divers", ask = ">", askX = true},
+				--{name = "Sport", ask = ">", askX = true},
+				--{name = "Salutation", ask = ">", askX = true},
+				--{name = "~g~Démarches"},
+			}
+		},
+
+
+["festives"] = {
+			b = {
+				{name = "Fumer une cigarette"},
+				{name = "Fumer un joint"},
+				{name = "Dj"},
+				{name = "Bourré sur place"},
+				{name = "Vomir en voiture"},
+			}
+		},
+
+		["divers"] = {
+			b = {
+				{name = "Boire un café"},
+				{name = "S'asseoir"},
+				{name = "Attendre contre un mur"},
+				{name = "Couché sur le dos"},
+				{name = "Couché sur le ventre"},
+				{name = "Nettoyer quelque chose"},
+				{name = "Préparer à manger"},
+				{name = "Position de Fouille"},
+				{name = "Prendre un selfie"},
+				{name = "Ecouter à une porte"},
+			}
+		},
+
+		["sport"] = {
+			b = {
+				{name = "Montrer ses muscles"},
+				{name = "Faire des pompes"},
+				{name = "Faire des abdos"},
+				{name = "Faire du yoga"},
+			}
+		},
+
+		["salutation"] = {
+			b = {
+				{name = "Saluer"},
+				{name = "Serrer la main"},
+				{name = "Tchek"},
+				{name = "Salut bandit"},
+				{name = "Salut Militaire"},
+			}
+		},
+
+		["démarches"] = {
+			b = {
+				{name = "Normal M"},
+				{name = "Normal F"},
+				{name = "Depressif M"},
+				{name = "Depressif F"},
+				{name = "Business"},
+				{name = "Determine"},
+				{name = "Casual"},
+				{name = "Trop mangé"},
+				{name = "Hipster"},
+				{name = "Blesse"},
+				{name = "Intimide"},
+				{name = "Hobo"},
+				{name = "Malheureux"},
+				{name = "Muscle"},
+				{name = "Choc"},
+				{name = "Sombre"},
+				{name = "Fatigue"},
+				{name = "Pressee"},
+				{name = "Fier"},
+				{name = "Petite course"},
+				{name = "Mangeuse d'homme"},
+				{name = "Impertinent"},
+				{name = "Arrogante"},
+			}
+		}	
+	}
+}
+
+
+ragdol = true
+RegisterNetEvent("Ragdoll")
+AddEventHandler("Ragdoll", function()
+	if ( ragdol ) then
+		setRagdoll(true)
+		ragdol = false
+		ESX.ShowColoredNotification("Vous etes par terre !", 6)
+	else
+
+		setRagdoll(false)
+		ragdol = true
+		ESX.ShowColoredNotification("Vous etes debout !", 18)
+	end
+end)
+
+function startScenario(anim)
+    TaskStartScenarioInPlace(PlayerPedId(), anim, 0, false)
+end
+
+function startAttitude(lib, anim)
+	ESX.Streaming.RequestAnimSet(lib, function()
+		SetPedMovementClipset(PlayerPedId(), anim, true)
+	end)
+end
+
+function startAnim(lib, anim)
+	ESX.Streaming.RequestAnimDict(lib, function()
+		TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 0, 0.0, false, false, false)
+	end)
+end
+
+
+
+local ragdoll = false
+function setRagdoll(flag)
+  ragdoll = flag
+end
+Citizen.CreateThread(function()
+  while true do
+	Citizen.Wait(0)
+	if ragdoll then
+	  SetPedToRagdoll(GetPlayerPed(-1), 1000, 1000, 0, 0, 0, 0)
+	end
+  end
+end)
